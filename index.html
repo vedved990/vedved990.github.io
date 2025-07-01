@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rechnung - Poiak Trans GmbH</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    font-size: 12px; /* Smaller base font */
+    margin: 10mm;    /* Standard A4 print margins */
+}
+
+input, textarea, select {
+    font-size: 12px;
+    padding: 4px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #ccc;
+}
+
+h2, h3, h4 {
+    margin: 4px 0;
+    font-size: 14px;
+}
+
+.invoice {
+    padding: 10px;
+}
+
+table {
+    font-size: 11px;
+}
+
+        .invoice {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid #ddd;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .company-info {
+            width: 60%;
+        }
+        .invoice-info {
+            width: 35%;
+            text-align: right;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .total-table {
+            margin-top: 30px;
+            width: 50%;
+            float: right;
+        }
+        .footer {
+            clear: both;
+            margin-top: 40px;
+            font-size: 0.9em;
+        }
+        .highlight {
+            font-weight: bold;
+        }
+        .notes {
+            white-space: pre-line;
+            margin-top: 20px;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 5px;
+            margin: 3px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            background-color: #f9f9f9;
+        }
+        input[readonly] {
+            background-color: #eee;
+            border: 1px solid #ddd;
+        }
+        .distance-info {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .checkbox-group {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+}
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: normal;
+}
+
+    </style>
+</head>
+<body>
+    <div class="invoice">
+        <div class="header">
+            <div class="company-info">
+                <h2>Poiak Trans GmbH</h2>
+                <p>Seitenhafenstraße 17/1, 1020 Wien<br>
+                    Telefon: +43699 18 177 832<br>
+                    E-Mail: Poiac03autotransporte@gmail.com<br>
+                    UID Nr.: ATU73468437</p>
+            </div>
+            <div class="invoice-info">
+                <h3>Rechnung</h3>
+                <p>
+                    Rechnungsnummer: <input type="text" value="INV-R6RM5F" readonly><br>
+                    Rechnungsdatum: <input type="text" value="20.06.2025_20:49" readonly>
+                </p>
+            </div>
+        </div>
+
+        <div class="recipient">
+            <h4>Rechnungsempfänger:</h4>
+            <p>
+                <input type="text" value="" readonly><br>
+                <input type="text" value="1230 Wien Dirmhirngasse 84/1/14" readonly><br>
+                Mitgliedsnummer: <input type="text" value="56769649" readonly>
+            </p>
+        </div>
+
+        <div class="service-info">
+            <h4>Rechnung für:  Wien - Stadtpauschale</h4>
+            <p>
+                Schadensnummer: <input type="text" value="2512127897" readonly><br>
+                Schaden: <input type="text" value="Ausgesperrt / Schlüssel / Schlösser" readonly><br>
+                Ursache: <input type="text" value="Bauteil mechanisch defekt" readonly>
+            </p>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Details</th>
+                    <th>Fahrzeugbeschreibung</th>
+                    <th>Mitgliedsdaten</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Standort: <input type="text" value="Ketzergasse 439" ><br>
+                        Zielort: <input type="text" value="1230 Wien , Siebenhirtenstraße 13a" >
+                    </td>
+                    <td>
+                        Marke: <input type="text" value="Audi A3 (PKW)" ><br>
+                        Kennz.: <input type="text" value="W -15252N" >
+                    </td>
+                    <td>
+                        Name: <input type="text" value="Yolcu Yunus" ><br>
+                        Mitgliedsnummer: <input type="text" value="56769649" >
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <strong>Besondere Leistungen:</strong>
+        <div class="checkbox-group">
+            <label><input type="checkbox" class="service-checkbox" value="70"> Kraneinsatz (+70 €)</label>
+            <label><input type="checkbox" class="service-checkbox" value="60"> Bergung Tiefgarage (+60 €)</label>
+            <label><input type="checkbox" class="service-checkbox" value="60"> Überstundenpauschale (+60 €)</label>
+        </div>
+
+        <table class="total-table">
+            <tr>
+                <td>Netto</td>
+                <td><input type="text" id="netto" value="83,33 €" readonly></td>
+            </tr>
+            <tr>
+                <td>Steuersatz</td>
+                <td><input type="text" value="20%" readonly></td>
+            </tr>
+            <tr>
+                <td>Mehrwertsteuer</td>
+                <td><input type="text" id="vat" value="16,67 €" readonly></td>
+            </tr>
+            <tr class="highlight">
+                <td>Brutto</td>
+                <td><input type="text" id="brutto" value="100,00 €" readonly></td>
+            </tr>
+        </table>
+
+        <div class="footer">
+            <p><strong>Zahlungsinformationen:</strong><br>
+            Konto: Poiak Trans GmbH<br>
+            IBAN: AT96 3225 0000 0076 7673<br>
+            BIC: RLNWATWWGTD</p>
+
+            <p>Gesamtbetrag fällig in 14 Tagen.<br>
+            Bei Zahlung Rechnungsnummer angeben.</p>
+
+            <p class="highlight">VIELEN DANK FÜR IHRE BESTELLUNG!</p>
+        </div>
+    </div>
+
+    <script>
+        const checkboxes = document.querySelectorAll('.service-checkbox');
+        const bruttoField = document.getElementById('brutto');
+        const nettoField = document.getElementById('netto');
+        const vatField = document.getElementById('vat');
+
+        const baseBrutto = 100;
+
+        function updateTotals() {
+            let extra = 0;
+            checkboxes.forEach(cb => {
+                if (cb.checked) {
+                    extra += parseFloat(cb.value);
+                }
+            });
+
+            const brutto = baseBrutto + extra;
+            const netto = brutto / 1.2;
+            const vat = brutto - netto;
+
+            bruttoField.value = brutto.toFixed(2).replace('.', ',') + ' €';
+            nettoField.value = netto.toFixed(2).replace('.', ',') + ' €';
+            vatField.value = vat.toFixed(2).replace('.', ',') + ' €';
+        }
+
+        checkboxes.forEach(cb => cb.addEventListener('change', updateTotals));
+    </script>
+</body>
+</html>
